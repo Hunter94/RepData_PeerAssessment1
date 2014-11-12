@@ -1,12 +1,27 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
+output:html_document
 ---
 
 
 ## Loading and preprocessing the data
+
+```{r}
+
+## Load in the necessary libraries
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+
+## Unzipping file and reading into r
+unzip("activity.zip")
+activity <- read.csv("activity.csv", stingsAsFactors = FALSE)
+
+## Formatting dates and turning day intervals into factors
+activity$date <- ymd(activity$date)
+activity$interval <- as.factor(activity$interval)
+
+```
 
 
 
