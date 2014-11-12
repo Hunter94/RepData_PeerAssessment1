@@ -3,8 +3,13 @@ title: "Reproducible Research: Peer Assessment 1"
 output:html_document
 ---
 
+Please refer to the readme document in this repository for details on the 
+assignment. 
 
 ## Loading and preprocessing the data
+
+I load the data in raw and then ensure the dates are in the right format and 
+the time intervals are factors for ease of analysis.
 
 ```{r}
 
@@ -23,10 +28,22 @@ activity$interval <- as.factor(activity$interval)
 
 ```
 
-
-
 ## What is mean total number of steps taken per day?
 
+```{r}
+## Create a summary of the data summing steps by day
+
+datesum <- summarize(group_by(activity, date), sum(steps, na.rm = TRUE))
+names(datesum)[2] <- "steps"
+
+## Plot the histogram of total steps per day
+qplot(date, steps, data = datesum, geom = "histogram", stat = "identity", main = "Total Number of Steps per Day")
+
+## Calculate mean and median of the steps taken per day
+meansteps <- mean(datesum$steps)
+mediansteps <- median(datesum$steps)
+
+```
 
 
 ## What is the average daily activity pattern?
