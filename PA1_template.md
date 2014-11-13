@@ -3,6 +3,8 @@ title: "Reproducible Research: Peer Assessment 1"
 output: html_document
 ---
 
+## Reproducible Research: Peer Assessment 1
+
 Please refer to the readme document in this repository for details on the 
 assignment. 
 
